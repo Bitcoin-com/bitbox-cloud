@@ -1,6 +1,6 @@
 {
   "name": "bitbox-cloud",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Command line utilities for Bitcoin.com's Cloud",
   "main": "index.js",
   "repository": "git@github.com:Bitcoin-com/bitbox-cloud.git",
