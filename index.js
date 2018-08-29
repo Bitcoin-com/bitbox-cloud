@@ -2,6 +2,7 @@
 require("babel-register");
 // let path = require('path');
 let program = require('commander');
+let axios = require('axios');
 // let chalk = require('chalk');
 // let mkdirp = require('mkdirp');
 // let cpFile = require('cp-file');
@@ -23,36 +24,61 @@ program
 program
   .command('auth:2fa')
   .description(`check 2fa status`)
-  .action((name, options) => {
-    console.log('2fa')
+  .action(() => {
+    try {
+    let response = await axios.get(`${process.env.REST_URL}auth/2fa`);
+      console.log(response.data)
+    } catch (error) {
+      throw error;
+    }
 });
 
 program
   .command('auth:login')
   .description(`login with your Heroku credentials`)
-  .action(() => {
-    console.log('login')
+  .action(async () => {
+    try {
+    let response = await axios.post(`${process.env.REST_URL}auth/login`);
+      console.log(response.data)
+    } catch (error) {
+      throw error;
+    }
 });
 
 program
   .command('auth:logout')
   .description(`login with your Heroku credentials`)
   .action(() => {
-    console.log('bar')
+    try {
+    let response = await axios.post(`${process.env.REST_URL}auth/logout`);
+      console.log(response.data)
+    } catch (error) {
+      throw error;
+    }
 })
 
 program
   .command('auth:token')
   .description(`outputs current CLI authentication token`)
   .action(() => {
-    console.log('token')
+    try {
+    let response = await axios.get(`${process.env.REST_URL}auth/token`);
+      console.log(response.data)
+    } catch (error) {
+      throw error;
+    }
 });
 
 program
   .command('auth:whoami')
   .description(`display the current logged in user`)
   .action(() => {
-    console.log('whoami')
+      try {
+    let response = await axios.get(`${process.env.REST_URL}auth/whoami`);
+      console.log(response.data)
+    } catch (error) {
+      throw error;
+    }
 });
 
 // program
