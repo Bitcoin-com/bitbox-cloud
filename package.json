@@ -1,9 +1,22 @@
 {
   "name": "bitbox-cloud",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Command line utilities for Bitcoin.com's Cloud",
   "main": "index.js",
-  "repository": "git@github.com:Bitcoin-com/bitbox-cloud.git",
   "author": "Gabriel Cardona <gabriel@bitcoin.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.11.0"
+  },
+  "bin": {
+    "bitbox-cloud": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Bitcoin-com/bitbox-cloud.git"
+  },
+  "dependencies": {
+    "babel-register": "^6.26.0",
+    "commander": "^2.17.1"
+  }
 }

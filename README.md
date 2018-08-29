@@ -1,4 +1,4 @@
-# `bitbox-cloud` npm lib
+# `bitbox-cloud` 
 
 Command line utilities for Bitcoin.com's Cloud
 
@@ -6,4 +6,4 @@ Command line utilities for Bitcoin.com's Cloud
 
 ### Installation
 
-`npm install bitbox-cloud --global`  
+`npm install bitbox-cloud --global`
