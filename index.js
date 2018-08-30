@@ -7,7 +7,7 @@ let tokenStore = require('token-store');
 let tokens = tokenStore({ filename: 'tokenstoretest' });
 
 program
-  .version('0.0.5', '-v, --version')
+  .version('0.0.6', '-v, --version')
 
 program
   .command('auth:register')
