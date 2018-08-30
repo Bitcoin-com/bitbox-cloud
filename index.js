@@ -7,7 +7,7 @@ let tokenStore = require('token-store');
 let tokens = tokenStore({ filename: 'tokenstoretest' });
 
 program
-  .version('0.0.6', '-v, --version')
+  .version('0.0.7', '-v, --version')
 
 program
   .command('auth:register')
@@ -26,6 +26,10 @@ program
           server: 'http://localhost:5000',
           user: JSON.stringify(response.data.user),
           token: response.data.token
+        });
+        console.log({
+          username: response.data.user.username,
+          id: response.data.user._id
         });
       } catch (error) {
         throw error;
@@ -56,7 +60,15 @@ program
           username: result.username,
           password: result.password
         });
-        console.log(response.data)
+        tokens.set({
+          server: 'http://localhost:5000',
+          user: JSON.stringify(response.data.user),
+          token: response.data.token
+        });
+        console.log({
+          username: response.data.user.username,
+          id: response.data.user._id
+        });
       } catch (error) {
         throw error;
       }
