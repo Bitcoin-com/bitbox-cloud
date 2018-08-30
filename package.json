@@ -1,6 +1,6 @@
 {
   "name": "bitbox-cloud",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Command line utilities for Bitcoin.com's Cloud",
   "main": "index.js",
   "author": "Gabriel Cardona <gabriel@bitcoin.com>",
