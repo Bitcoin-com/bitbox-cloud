@@ -24,7 +24,7 @@ program
 program
   .command('auth:2fa')
   .description(`check 2fa status`)
-  .action(() => {
+  .action(async () => {
     try {
     let response = await axios.get(`${process.env.REST_URL}auth/2fa`);
       console.log(response.data)
@@ -35,7 +35,7 @@ program
 
 program
   .command('auth:login')
-  .description(`login with your Heroku credentials`)
+  .description(`login with your Bitcoin.com credentials`)
   .action(async () => {
     try {
     let response = await axios.post(`${process.env.REST_URL}auth/login`);
@@ -47,8 +47,8 @@ program
 
 program
   .command('auth:logout')
-  .description(`login with your Heroku credentials`)
-  .action(() => {
+  .description(`login with your Bitcoin.com credentials`)
+  .action(async () => {
     try {
     let response = await axios.post(`${process.env.REST_URL}auth/logout`);
       console.log(response.data)
@@ -60,7 +60,7 @@ program
 program
   .command('auth:token')
   .description(`outputs current CLI authentication token`)
-  .action(() => {
+  .action(async () => {
     try {
     let response = await axios.get(`${process.env.REST_URL}auth/token`);
       console.log(response.data)
@@ -72,9 +72,9 @@ program
 program
   .command('auth:whoami')
   .description(`display the current logged in user`)
-  .action(() => {
-      try {
-    let response = await axios.get(`${process.env.REST_URL}auth/whoami`);
+  .action(async () => {
+    try {
+      let response = await axios.get(`${process.env.REST_URL}auth/whoami`);
       console.log(response.data)
     } catch (error) {
       throw error;
