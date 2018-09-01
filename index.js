@@ -111,6 +111,73 @@ program
 });
 
 program
+  .command('nodes:list')
+  .description(`list all active nodes`)
+  .action(async () => {
+    try {
+      if (!tokens.has('http://localhost:5000')) {
+        throw new Error("Login required")
+      }
+
+      current = tokens.current('http://localhost:5000');
+      let response = await axios.get(`${process.env.REST_URL}nodes`, {
+        headers: { 'Authorization': "Bearer " + current.token }
+      });
+      console.log(response.data);
+    } catch (error) {
+      throw error;
+    }
+});
+
+program
+  .command('nodes:create')
+  .description(`create a new node`)
+  .option('-n, --name [name]', 'Name of your node [name]', 'defaultName')
+  .option('-f, --flavor [flavor]', 'Flavor of your node [name]', 'abc.0.18.0')
+  .action(async (cmd) => {
+    try {
+      if (!tokens.has('http://localhost:5000')) {
+        throw new Error("Login required")
+      }
+
+      current = tokens.current('http://localhost:5000');
+
+      let data = {
+        name: cmd.name,
+        flavor: cmd.flavor,
+      }
+      let requestOptions = {
+        headers: { 'Authorization': "Bearer " + current.token }
+      }
+      let response = await axios.post(`${process.env.REST_URL}nodes`, data, requestOptions);
+      console.log(response.data);
+    } catch (error) {
+      throw error;
+    }
+});
+
+program
+  .command('nodes:delete <name>')
+  .description(`delete a node`)
+  .action(async (name) => {
+    try {
+      if (!tokens.has('http://localhost:5000')) {
+        throw new Error("Login required")
+      }
+
+      current = tokens.current('http://localhost:5000');
+
+      let requestOptions = {
+        headers: { 'Authorization': "Bearer " + current.token }
+      }
+      let response = await axios.delete(`${process.env.REST_URL}nodes/${name}`, requestOptions);
+      console.log(response.data);
+    } catch (error) {
+      throw error;
+    }
+});
+
+program
   .parse(process.argv);
 
 // print help if no command given
