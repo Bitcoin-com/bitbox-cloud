@@ -19,7 +19,7 @@ bitbox-cloud auth:register
 prompt: username:  myUsername
 prompt: password:  myPassword
 { username: 'myUsername', id: '5b888278d3955119e52c827a' }
-````
+```
 
 #### auth:2fa
 
@@ -67,3 +67,5 @@ display the current logged in user
 bitbox-cloud auth:whoami
 { username: 'myUsername', id: '5b888278d3955119e52c827a' }
 ```
+
+[![Coverage Status](https://coveralls.io/repos/github/Bitcoin-com/bitbox-cloud/badge.svg?branch=master)](https://coveralls.io/github/Bitcoin-com/bitbox-cloud?branch=master)
