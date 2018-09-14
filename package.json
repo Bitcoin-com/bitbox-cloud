@@ -26,6 +26,7 @@
     "axios": "^0.18.0",
     "babel-register": "^6.26.0",
     "commander": "^2.17.1",
+    "mocha": "^5.2.0",
     "prompt": "^1.0.0",
     "token-store": "Bitcoin-com/token-store#0.1.0"
   },
