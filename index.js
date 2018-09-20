@@ -6,7 +6,7 @@ const prompt = require("prompt")
 const tokenStore = require("token-store")
 const tokens = tokenStore({ filename: "tokenstoretest" })
 
-program.version("0.0.7", "-v, --version")
+program.version("0.0.8", "-v, --version")
 
 program
   .command("auth:register")
