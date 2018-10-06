@@ -14,13 +14,14 @@ program
   .description(`Register for Bitcoin.com credentials`)
   .action(async () => {
     prompt.start();
-    prompt.get(['email', 'username', 'password'], async (err, result) => {
+    prompt.get(['email', 'username', { name: 'password', hidden: true }, 'invite_code'], async (err, result) => {
       try {
         let response = await axios.post(`${process.env.REST_URL}users`, {
           user: {
             email: result.email,
             username: result.username,
-            password: result.password
+            password: result.password,
+            invite_code: result.invite_code,
           }
         });
         tokens.set({
